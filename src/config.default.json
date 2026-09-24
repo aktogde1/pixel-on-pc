@@ -1,0 +1,13 @@
+{
+  "resolution": "1920x1080",
+  "dpi": 200,
+  "maxFps": 60,
+  "videoCodec": "h264",
+  "videoBitRate": "16M",
+  "keyboard": "uhid",
+  "mouse": "uhid",
+  "fullscreen": true,
+  "turnPhysicalDisplayOff": true,
+  "restorePhysicalDisplayOnExit": true,
+  "displayImePolicy": "local"
+}

@@ -1,0 +1,29 @@
+name: Test
+on:
+  push:
+  pull_request:
+jobs:
+  powershell:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse PowerShell files
+        shell: pwsh
+        run: |
+          $failed = $false
+          Get-ChildItem -Recurse -Filter *.ps1 | ForEach-Object {
+            $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$null, [ref]$errors) | Out-Null
+            if ($errors.Count) { $errors | Write-Error; $failed = $true }
+          }
+          if ($failed) { exit 1 }
+      - name: Ensure CMD files are ASCII
+        shell: pwsh
+        run: |
+          Get-ChildItem -Recurse -Include *.cmd,*.bat | ForEach-Object {
+            $bytes = [IO.File]::ReadAllBytes($_.FullName)
+            if ($bytes | Where-Object { $_ -gt 127 }) { throw "$($_.FullName) is not ASCII" }
+          }
+      - name: Build release archive
+        shell: pwsh
+        run: ./scripts/build-release.ps1

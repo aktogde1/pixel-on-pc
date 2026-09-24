@@ -1,0 +1,24 @@
+name: Bug report
+description: Report a reproducible Pixel on PC problem
+body:
+  - type: markdown
+    attributes:
+      value: Never post ADB keys, pairing codes, device serial numbers or personal data.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What happened and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Redacted diagnostics
+      description: Attach output from pixel-on-pc diagnose after reviewing it.

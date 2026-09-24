@@ -1,0 +1,6 @@
+dist/
+vendor/
+*.log
+diagnostics-*.txt
+.vscode/
+.idea/

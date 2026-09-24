@@ -4,6 +4,9 @@
 
 Use a Google Pixel as a separate Android workspace on a Windows PC over USB. Pixel on PC installs the official [Genymobile scrcpy](https://github.com/Genymobile/scrcpy), creates a 1080p virtual Android display, connects the PC keyboard and mouse, forwards audio, and turns the phone OLED off while you work.
 
+> [!WARNING]
+> **This is not Android's official Desktop Mode.** A Windows PC is not detected by the phone as a physical monitor. The project displays a separate virtual Android screen through scrcpy; full DeX-style freeform windows are not guaranteed. The official external-display mode requires connecting the Pixel directly to a compatible monitor or dock over USB-C/DisplayPort/HDMI.
+
 Tested on a Pixel 9 Pro XL with GrapheneOS based on Android 17 and Windows 11.
 
 > [!IMPORTANT]

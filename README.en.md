@@ -1,5 +1,7 @@
 # Pixel on PC
 
+[Русский](README.md) · **English**
+
 Use a Google Pixel as a separate Android workspace on a Windows PC over USB. Pixel on PC installs the official [Genymobile scrcpy](https://github.com/Genymobile/scrcpy), creates a 1080p virtual Android display, connects the PC keyboard and mouse, forwards audio, and turns the phone OLED off while you work.
 
 Tested on a Pixel 9 Pro XL with GrapheneOS based on Android 17 and Windows 11.
@@ -72,7 +74,7 @@ See [the technical note](docs/ANDROID-17-DESKTOP-LIMITATION.md).
 
 - [Setup](docs/SETUP.md)
 - [Troubleshooting](docs/TROUBLESHOOTING.md)
-- [Russian README](README.ru.md)
+- [Russian README](README.md)
 - [Security policy](SECURITY.md)
 
 ## License

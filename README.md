@@ -1,20 +1,29 @@
 # Pixel on PC
 
+**Русский** · [English](README.en.md)
+
 Pixel on PC превращает Google Pixel в отдельное Android-пространство на компьютере с Windows через USB. Проект устанавливает официальный [scrcpy от Genymobile](https://github.com/Genymobile/scrcpy), создаёт виртуальный Android-дисплей 1080p, подключает клавиатуру и мышь компьютера, передаёт звук и гасит OLED телефона на время работы.
 
 Проверено на Pixel 9 Pro XL с GrapheneOS/Android 17 и Windows 11.
 
-Это независимый общественный проект без официальной связи с GrapheneOS, Google или Genymobile.
+> [!IMPORTANT]
+> Это независимый проект сообщества. Он не связан с GrapheneOS, Google или Genymobile и не одобрен ими официально.
 
 ## Установка
 
-После публикации первого релиза:
+Откройте PowerShell и выполните одну команду:
 
 ```powershell
 irm https://github.com/aktogde1/pixel-on-pc/releases/latest/download/install.ps1 | iex
 ```
 
 Права администратора не нужны. Проект устанавливается в `%LOCALAPPDATA%\PixelOnPC`, а ярлык **Pixel on PC** появляется на рабочем столе и в меню «Пуск».
+
+Если вы хотите сначала проверить установщик, скачайте `install.ps1` из [последнего релиза](https://github.com/aktogde1/pixel-on-pc/releases/latest), откройте его в текстовом редакторе и затем выполните:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
+```
 
 ## Подготовка Pixel
 
@@ -32,3 +41,16 @@ irm https://github.com/aktogde1/pixel-on-pc/releases/latest/download/install.ps1
 Проект не включает старый глобальный `force_desktop_mode_on_external_displays` и не устанавливает сторонний launcher.
 
 Подробности: [настройка](docs/SETUP.md), [решение проблем](docs/TROUBLESHOOTING.md), [техническое ограничение](docs/ANDROID-17-DESKTOP-LIMITATION.md).
+
+## Безопасность
+
+- scrcpy загружается только из официального репозитория Genymobile.
+- Архивы Pixel on PC и scrcpy проверяются по SHA-256.
+- Не требуются root, разблокировка загрузчика или сброс телефона.
+- Беспроводная ADB-отладка автоматически не включается.
+- Телеметрии нет.
+- Диагностика скрывает серийный номер устройства и сетевые адреса.
+
+## Лицензия
+
+Pixel on PC распространяется по [лицензии MIT](LICENSE). scrcpy — отдельный проект под лицензией Apache 2.0.

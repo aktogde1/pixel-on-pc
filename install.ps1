@@ -18,7 +18,9 @@ function Copy-ProjectFiles([string]$From) {
         if (-not (Test-Path -LiteralPath (Join-Path $From $item))) { throw "Release is missing $item" }
     }
     New-Item -ItemType Directory -Force -Path $InstallRoot | Out-Null
-    Copy-Item -LiteralPath (Join-Path $From 'src') -Destination (Join-Path $InstallRoot 'app') -Recurse -Force
+    $appRoot = Join-Path $InstallRoot 'app'
+    Remove-Item -LiteralPath $appRoot -Recurse -Force -ErrorAction SilentlyContinue
+    Copy-Item -LiteralPath (Join-Path $From 'src') -Destination $appRoot -Recurse -Force
     Copy-Item -LiteralPath (Join-Path $From 'VERSION') -Destination $InstallRoot -Force
     Copy-Item -LiteralPath (Join-Path $From 'scrcpy-manifest.json') -Destination $InstallRoot -Force
     $defaultConfig = Join-Path $From 'src\config.default.json'
